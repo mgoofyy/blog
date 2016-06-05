@@ -1,16 +1,18 @@
 var mongodb = require("./../mongo/db");
 
 function User(user) {
-	this.name = user.name;
-	this.title = user.title;
+	this.userName = user.userName;
+	this.passWord = user.passWord;
+	this.email = user.email;
 }
 
 module.exports = User;
 
 User.prototype.save = function(callback) {
 	var user = {
-		name:this.name,
-		title:this.title
+		userName:this.userName,
+		passWord:this.passWord,
+		email:this.email
 	};
 
 	mongodb.open(function(err,db){
@@ -48,7 +50,7 @@ User.get = function(name,callback) {
 				mongodb.close();
 				return callback(err);
 			}
-			colleciotn.findOne({name:name},function(err,user){
+			colleciotn.findOne({userName:name},function(err,user){
 				mongodb.close();
 				if (err) {
 					return callback(err);

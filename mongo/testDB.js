@@ -28,8 +28,9 @@ var User = require('./../model/user');
 // })
 
 var  newUser = new User({
-	name:"zhgeewan",
-	title:"heyeweie"
+	userName:"zhgeewan",
+	passWord:"heyeweie",
+	email:"goofyy@qq.com"
 });
 
 User.get("zhgean",function(err,user){
